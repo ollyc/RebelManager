@@ -130,7 +130,7 @@ GEM
     msgpack (1.2.10)
     multipart-post (2.1.1)
     nio4r (2.3.1)
-    nokogiri (1.10.3)
+    nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (1.1.4)
@@ -172,8 +172,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    rb-kqueue (0.2.5)
-      ffi (>= 0.5.0)
     regexp_parser (1.5.0)
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
@@ -266,7 +264,6 @@ DEPENDENCIES
   puma (~> 3.11)
   rack-cors
   rails (~> 6.0.0.rc1)
-  rb-kqueue (>= 0.2)
   sass-rails (~> 5)
   selenium-webdriver
   sentry-raven
