@@ -1,5 +1,6 @@
 class RebelsController < ApplicationController
   skip_before_action :verify_authenticity_token, on: [:create]
+  @@default_redirect_target = "https://www.extinctionrebellion.be/thank-you"
 
   def new
     @rebel = Rebel.new
@@ -8,13 +9,21 @@ class RebelsController < ApplicationController
   def create
     @rebel = Rebel.new(rebel_params)
     if @rebel.save
-      redirect_to "https://www.extinctionrebellion.be/thank-you.html"
+      return redirect_to redirect_target
     else
       render :new
     end
   end
 
   private
+
+  def redirect_target
+      target = params[:redirect_to]
+      if not target.nil? and target.include? "://"
+        return target
+      end
+      return @@default_redirect_target
+  end
 
   def rebel_params
     params.require(:rebel).permit(
